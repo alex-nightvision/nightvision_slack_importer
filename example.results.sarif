@@ -1,0 +1,685 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "NightVision",
+          "version": "0.1.0",
+          "informationUri": "https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings",
+          "rules": [
+            {
+              "id": "5f666992-b835-4ebc-a43a-710464382448-SQL Injection - PostgreSQL",
+              "name": "5f666992-b835-4ebc-a43a-710464382448-SQL Injection - PostgreSQL",
+              "shortDescription": {
+                "text": "SQL Injection - PostgreSQL"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/search` URL path is vulnerable to **SQL Injection - PostgreSQL** via a `POST` request. The application declared the `/search` endpoint in the file `src/main/java/hawk/controller/SearchController.java` on **Line 37**.\n\n**Description**: The vulnerability found in the application is a SQL Injection vulnerability, specifically targeting the PostgreSQL database. The payload used in the HTTP Request was a single quote (`'`). The parameter name affected by this vulnerability is `searchText`, and the HTTP method used is `POST`. \n\nThe evidence of this vulnerability is the error message returned by the application, which indicates that a PostgreSQL database error occurred. By manipulating the `searchText` parameter and injecting a single quote as the payload, the application's response confirms the existence of the vulnerability. This proof-of-concept attack demonstrates that an attacker can manipulate the input to execute arbitrary SQL queries on the database, potentially leading to unauthorized access or data manipulation.\n\nThe impact of this vulnerability is significant, as it allows an attacker to bypass the intended application logic and directly interact with the database. With the ability to execute arbitrary SQL queries, an attacker could extract sensitive information, modify or delete data, or even gain unauthorized access to other parts of the system. It is crucial to address this vulnerability promptly by implementing proper input validation and parameterized queries to prevent SQL Injection attacks.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/119"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/search` URL path is vulnerable to **SQL Injection - PostgreSQL** via a `POST` request. The application declared the `/search` endpoint in the file `src/main/java/hawk/controller/SearchController.java` on **Line 37**.\n\n**Description**: The vulnerability found in the application is a SQL Injection vulnerability, specifically targeting the PostgreSQL database. The payload used in the HTTP Request was a single quote (`'`). The parameter name affected by this vulnerability is `searchText`, and the HTTP method used is `POST`. \n\nThe evidence of this vulnerability is the error message returned by the application, which indicates that a PostgreSQL database error occurred. By manipulating the `searchText` parameter and injecting a single quote as the payload, the application's response confirms the existence of the vulnerability. This proof-of-concept attack demonstrates that an attacker can manipulate the input to execute arbitrary SQL queries on the database, potentially leading to unauthorized access or data manipulation.\n\nThe impact of this vulnerability is significant, as it allows an attacker to bypass the intended application logic and directly interact with the database. With the ability to execute arbitrary SQL queries, an attacker could extract sensitive information, modify or delete data, or even gain unauthorized access to other parts of the system. It is crucial to address this vulnerability promptly by implementing proper input validation and parameterized queries to prevent SQL Injection attacks.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/119"
+              }
+            },
+            {
+              "id": "313f1eb0-ecd7-43e0-96c5-6554400a0c54-Cross Site Scripting (Reflected)",
+              "name": "313f1eb0-ecd7-43e0-96c5-6554400a0c54-Cross Site Scripting (Reflected)",
+              "shortDescription": {
+                "text": "Cross Site Scripting (Reflected)"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/search` URL path is vulnerable to **Cross Site Scripting (Reflected)** via a `POST` request. The application declared the `/search` endpoint in the file `src/main/java/hawk/controller/SearchController.java` on **Line 37**.\n\n**Description**: The application security vulnerability that was found in the application is a Cross-Site Scripting (XSS) vulnerability. The payload `\"\u003e\u003cscrIpt\u003ealert(1);\u003c/scRipt\u003e` was supplied in the HTTP Request parameter named `searchText` using the HTTP method `POST`. The vulnerability exists in the `/search` URL path on the application located at `127.0.0.1:9000`.\n\nIn this scenario, the value of the `searchText` parameter is being reflected in the application's response without proper sanitization or encoding. The payload `\"\u003e\u003cscrIpt\u003ealert(1);\u003c/scRipt\u003e` demonstrates a proof-of-concept attack by injecting a malicious script into the application's response. This allows an attacker to execute arbitrary JavaScript code in the victim's browser, potentially leading to various malicious actions such as stealing cookies, performing phishing attacks, or gaining unauthorized access.\n\nTo mitigate this vulnerability, it is essential to implement proper input validation and output encoding to prevent the injection of malicious scripts. By sanitizing user input and encoding output, the application can ensure that any user-supplied data is treated as plain text and not executed as code. Regular security testing and code reviews should be conducted to identify and address such vulnerabilities proactively.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/35"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/search` URL path is vulnerable to **Cross Site Scripting (Reflected)** via a `POST` request. The application declared the `/search` endpoint in the file `src/main/java/hawk/controller/SearchController.java` on **Line 37**.\n\n**Description**: The application security vulnerability that was found in the application is a Cross-Site Scripting (XSS) vulnerability. The payload `\"\u003e\u003cscrIpt\u003ealert(1);\u003c/scRipt\u003e` was supplied in the HTTP Request parameter named `searchText` using the HTTP method `POST`. The vulnerability exists in the `/search` URL path on the application located at `127.0.0.1:9000`.\n\nIn this scenario, the value of the `searchText` parameter is being reflected in the application's response without proper sanitization or encoding. The payload `\"\u003e\u003cscrIpt\u003ealert(1);\u003c/scRipt\u003e` demonstrates a proof-of-concept attack by injecting a malicious script into the application's response. This allows an attacker to execute arbitrary JavaScript code in the victim's browser, potentially leading to various malicious actions such as stealing cookies, performing phishing attacks, or gaining unauthorized access.\n\nTo mitigate this vulnerability, it is essential to implement proper input validation and output encoding to prevent the injection of malicious scripts. By sanitizing user input and encoding output, the application can ensure that any user-supplied data is treated as plain text and not executed as code. Regular security testing and code reviews should be conducted to identify and address such vulnerabilities proactively.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/35"
+              }
+            },
+            {
+              "id": "5b6694f7-7de6-4d1c-896c-e94c2ec4a73d-Parameter Tampering",
+              "name": "5b6694f7-7de6-4d1c-896c-e94c2ec4a73d-Parameter Tampering",
+              "shortDescription": {
+                "text": "Parameter Tampering"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/search` URL path is vulnerable to **Parameter Tampering** via a `POST` request. The application declared the `/search` endpoint in the file `src/main/java/hawk/controller/SearchController.java` on **Line 37**.\n\n**Description**: The vulnerability in question is a Parameter Tampering vulnerability, which occurs when an attacker is able to modify the parameters of an HTTP request. In this case, the payload used is represented as `\\u0000`, and it was supplied in the `searchText` parameter of a POST request to the `/search` URL path on the application located at `127.0.0.1:9000`.\n\nThe impact of this vulnerability lies in the ability of an attacker to manipulate the application's parameters, potentially leading to unauthorized access or malicious actions. By tampering with the `searchText` parameter, an attacker could manipulate the application's behavior, bypass security controls, or gain access to sensitive information. The evidence of this vulnerability's existence is indicated by the provided text explanation, specifically the mention of the `javax.servlet.http.HttpServlet.service` method, which suggests that the application's servlet is vulnerable to parameter tampering. This proof-of-concept attack demonstrates the need for proper input validation and parameter sanitization to prevent such vulnerabilities and protect the application's integrity and security.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/95"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/search` URL path is vulnerable to **Parameter Tampering** via a `POST` request. The application declared the `/search` endpoint in the file `src/main/java/hawk/controller/SearchController.java` on **Line 37**.\n\n**Description**: The vulnerability in question is a Parameter Tampering vulnerability, which occurs when an attacker is able to modify the parameters of an HTTP request. In this case, the payload used is represented as `\\u0000`, and it was supplied in the `searchText` parameter of a POST request to the `/search` URL path on the application located at `127.0.0.1:9000`.\n\nThe impact of this vulnerability lies in the ability of an attacker to manipulate the application's parameters, potentially leading to unauthorized access or malicious actions. By tampering with the `searchText` parameter, an attacker could manipulate the application's behavior, bypass security controls, or gain access to sensitive information. The evidence of this vulnerability's existence is indicated by the provided text explanation, specifically the mention of the `javax.servlet.http.HttpServlet.service` method, which suggests that the application's servlet is vulnerable to parameter tampering. This proof-of-concept attack demonstrates the need for proper input validation and parameter sanitization to prevent such vulnerabilities and protect the application's integrity and security.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/95"
+              }
+            },
+            {
+              "id": "44a3ee9f-93dc-4268-a68d-186f57826c4a-Spring4Shell",
+              "name": "44a3ee9f-93dc-4268-a68d-186f57826c4a-Spring4Shell",
+              "shortDescription": {
+                "text": "Spring4Shell"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/search` URL path is vulnerable to **Spring4Shell** via a `POST` request. The application declared the `/search` endpoint in the file `src/main/java/hawk/controller/SearchController.java` on **Line 37**.\n\n**Description**: The vulnerability found in the application is a **Spring4Shell** vulnerability. This vulnerability allows an attacker to execute arbitrary commands on the server by exploiting a command injection vulnerability in the Spring framework. The payload used in this attack is `class.module.classLoader.DefaultAssertionStatus=nonsense`. \n\nThe HTTP request was sent as a **POST** request to the `/search` URL path on the **127.0.0.1:9000** location. The evidence of the vulnerability is an HTTP response with a status code of 400.\n\nIn this proof-of-concept attack, the payload is injected into the application's input, which is then processed by the Spring framework. The vulnerability allows the attacker to execute arbitrary commands on the server, potentially gaining unauthorized access, manipulating data, or causing system disruption. It is crucial to address this vulnerability promptly by applying security patches or updates provided by the Spring framework to prevent further exploitation and potential damage to the application and its underlying infrastructure.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/137"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/search` URL path is vulnerable to **Spring4Shell** via a `POST` request. The application declared the `/search` endpoint in the file `src/main/java/hawk/controller/SearchController.java` on **Line 37**.\n\n**Description**: The vulnerability found in the application is a **Spring4Shell** vulnerability. This vulnerability allows an attacker to execute arbitrary commands on the server by exploiting a command injection vulnerability in the Spring framework. The payload used in this attack is `class.module.classLoader.DefaultAssertionStatus=nonsense`. \n\nThe HTTP request was sent as a **POST** request to the `/search` URL path on the **127.0.0.1:9000** location. The evidence of the vulnerability is an HTTP response with a status code of 400.\n\nIn this proof-of-concept attack, the payload is injected into the application's input, which is then processed by the Spring framework. The vulnerability allows the attacker to execute arbitrary commands on the server, potentially gaining unauthorized access, manipulating data, or causing system disruption. It is crucial to address this vulnerability promptly by applying security patches or updates provided by the Spring framework to prevent further exploitation and potential damage to the application and its underlying infrastructure.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/137"
+              }
+            },
+            {
+              "id": "b7e8be4d-9f49-451c-a1ef-9fa92d1ff878-Application Error Disclosure",
+              "name": "b7e8be4d-9f49-451c-a1ef-9fa92d1ff878-Application Error Disclosure",
+              "shortDescription": {
+                "text": "Application Error Disclosure"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\n**Description**: ## Summary\n\nThis page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.\n\n## Solution\n\nReview the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/7"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\n**Description**: ## Summary\n\nThis page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.\n\n## Solution\n\nReview the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/7"
+              }
+            },
+            {
+              "id": "4bfa008f-3a67-4dad-a543-ae5c12d35134-Application Error Disclosure",
+              "name": "4bfa008f-3a67-4dad-a543-ae5c12d35134-Application Error Disclosure",
+              "shortDescription": {
+                "text": "Application Error Disclosure"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\n**Description**: ## Summary\n\nThis page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.\n\n## Solution\n\nReview the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/7"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\n**Description**: ## Summary\n\nThis page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.\n\n## Solution\n\nReview the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/7"
+              }
+            },
+            {
+              "id": "49dfd75b-7187-4a54-abf9-60428f808c18-Application Error Disclosure",
+              "name": "49dfd75b-7187-4a54-abf9-60428f808c18-Application Error Disclosure",
+              "shortDescription": {
+                "text": "Application Error Disclosure"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\n**Description**: ## Summary\n\nThis page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.\n\n## Solution\n\nReview the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/7"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\n**Description**: ## Summary\n\nThis page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.\n\n## Solution\n\nReview the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/7"
+              }
+            },
+            {
+              "id": "4f376282-a2f4-4af8-8867-028ae9a85a3d-Missing HTTP Header - Access-Control-Allow-Origin",
+              "name": "4f376282-a2f4-4af8-8867-028ae9a85a3d-Missing HTTP Header - Access-Control-Allow-Origin",
+              "shortDescription": {
+                "text": "Missing HTTP Header - Access-Control-Allow-Origin"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Access-Control-Allow-Origin** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: The application is missing the `Access-Control-Allow-Origin` security header. This header is used to specify which external domains are allowed to access the website's resources. By not including this header, an attacker could bypass the browser's cross-domain policy and perform malicious actions, such as stealing cookies, performing phishing attacks, or other malicious activities.\n\nTo demonstrate this security misconfiguration, send an HTTP request to `None` with the following `curl` command: ```curl -I None```. If the HTTP response does not include the `Access-Control-Allow-Origin` header in the response, then it does not have this layer of protection provided by the HTTP header. \n\n**References**:\n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#access-control-allow-origin \n- https://developer.mozilla.org/en-us/docs/web/http/headers/access-control-allow-origin\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/183"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Access-Control-Allow-Origin** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: The application is missing the `Access-Control-Allow-Origin` security header. This header is used to specify which external domains are allowed to access the website's resources. By not including this header, an attacker could bypass the browser's cross-domain policy and perform malicious actions, such as stealing cookies, performing phishing attacks, or other malicious activities.\n\nTo demonstrate this security misconfiguration, send an HTTP request to `None` with the following `curl` command: ```curl -I None```. If the HTTP response does not include the `Access-Control-Allow-Origin` header in the response, then it does not have this layer of protection provided by the HTTP header. \n\n**References**:\n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#access-control-allow-origin \n- https://developer.mozilla.org/en-us/docs/web/http/headers/access-control-allow-origin\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/183"
+              }
+            },
+            {
+              "id": "a6c21f8c-1def-4c64-8560-720ca1008037-Missing HTTP Header - Referrer-Policy",
+              "name": "a6c21f8c-1def-4c64-8560-720ca1008037-Missing HTTP Header - Referrer-Policy",
+              "shortDescription": {
+                "text": "Missing HTTP Header - Referrer-Policy"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Referrer-Policy** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: The site is missing the `Referrer-Policy` HTTP security header. This HTTP header controls how much referrer information (sent via the `Referer` header) should be included with requests. If this is not included, and the user is leveraging an older browser, then the `Referer` information can can contain the absolute or partial URL from which the resource was requested, potentially leading to information leakages offsite via the URLs in the `Referer` header.\n\n**Note**: Today, the default behavior in modern browsers is to no longer send all referrer information (origin, path, and query string) to the same site but to only send the origin to other sites. Therefore, the `Referrer-Policy` header is not as important as it used to be. Implementing this control could protect certain information leakage scenarios, but in most cases is not a critical security control.\n\n**References**: \n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#referrer-policy \n- https://developer.mozilla.org/en-us/docs/web/http/headers/referrer-policy\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/189"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Referrer-Policy** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: The site is missing the `Referrer-Policy` HTTP security header. This HTTP header controls how much referrer information (sent via the `Referer` header) should be included with requests. If this is not included, and the user is leveraging an older browser, then the `Referer` information can can contain the absolute or partial URL from which the resource was requested, potentially leading to information leakages offsite via the URLs in the `Referer` header.\n\n**Note**: Today, the default behavior in modern browsers is to no longer send all referrer information (origin, path, and query string) to the same site but to only send the origin to other sites. Therefore, the `Referrer-Policy` header is not as important as it used to be. Implementing this control could protect certain information leakage scenarios, but in most cases is not a critical security control.\n\n**References**: \n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#referrer-policy \n- https://developer.mozilla.org/en-us/docs/web/http/headers/referrer-policy\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/189"
+              }
+            },
+            {
+              "id": "3a01fbba-89e4-403c-a9f7-72c4d7f73412-Missing HTTP Header - Permissions-Policy",
+              "name": "3a01fbba-89e4-403c-a9f7-72c4d7f73412-Missing HTTP Header - Permissions-Policy",
+              "shortDescription": {
+                "text": "Missing HTTP Header - Permissions-Policy"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Permissions-Policy** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: The site is missing the `Permissions-Policy` HTTP security header. The `Permissions-Policy` header is an additional layer of security control that can ensure that even if a site is vulnerable to XSS, the site can be configured to never allow the camera, microphone, or other browser features to be activated by JavaScript, thus limiting the impact of a potential XSS vulnerability.\n\nTo demonstrate this security misconfiguration, send an HTTP request to `None` with the following `curl` command: ```curl -I None```. If the HTTP response does not include the `Permissions-Policy` header, then it does not have this layer of protection provided by the HTTP header. \n\nConsider setting the Permissions policy to disable geolocation, camera, and microphone for all domains, unless the site requires these features. This will help protect the site from XSS vulnerabilities that could be used to access sensitive information. For example: `Permissions-Policy: geolocation=(), camera=(), microphone=()`.\n\n**References**: \n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#permissions-policy-formerly-feature-policy \n- https://developer.mozilla.org/en-us/docs/web/http/headers/permissions-policy\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/188"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Permissions-Policy** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: The site is missing the `Permissions-Policy` HTTP security header. The `Permissions-Policy` header is an additional layer of security control that can ensure that even if a site is vulnerable to XSS, the site can be configured to never allow the camera, microphone, or other browser features to be activated by JavaScript, thus limiting the impact of a potential XSS vulnerability.\n\nTo demonstrate this security misconfiguration, send an HTTP request to `None` with the following `curl` command: ```curl -I None```. If the HTTP response does not include the `Permissions-Policy` header, then it does not have this layer of protection provided by the HTTP header. \n\nConsider setting the Permissions policy to disable geolocation, camera, and microphone for all domains, unless the site requires these features. This will help protect the site from XSS vulnerabilities that could be used to access sensitive information. For example: `Permissions-Policy: geolocation=(), camera=(), microphone=()`.\n\n**References**: \n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#permissions-policy-formerly-feature-policy \n- https://developer.mozilla.org/en-us/docs/web/http/headers/permissions-policy\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/188"
+              }
+            },
+            {
+              "id": "4c28c524-7dfd-4587-b8c8-ea3c173d6c77-Missing HTTP Header - Cross-Origin-Resource-Policy",
+              "name": "4c28c524-7dfd-4587-b8c8-ea3c173d6c77-Missing HTTP Header - Cross-Origin-Resource-Policy",
+              "shortDescription": {
+                "text": "Missing HTTP Header - Cross-Origin-Resource-Policy"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Cross-Origin-Resource-Policy** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: The application is missing the `Cross-Origin-Resource-Policy` HTTP security header. \n\nTo demonstrate this security misconfiguration, send an HTTP request to `None` with the following `curl` command: ```curl -I None```. If the HTTP response does not include the `Cross-Origin-Resource-Policy` header, then it does not have this layer of protection provided by the HTTP header. \n\nConsider setting the `Cross-Origin-Resource-Policy` header to `same-site` to prevent cross-domain attacks.\n\n**References**: \n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#cross-origin-resource-policy-corp \n- https://developer.mozilla.org/en-us/docs/web/http/headers/cross-origin-resource-policy\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/187"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Cross-Origin-Resource-Policy** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: The application is missing the `Cross-Origin-Resource-Policy` HTTP security header. \n\nTo demonstrate this security misconfiguration, send an HTTP request to `None` with the following `curl` command: ```curl -I None```. If the HTTP response does not include the `Cross-Origin-Resource-Policy` header, then it does not have this layer of protection provided by the HTTP header. \n\nConsider setting the `Cross-Origin-Resource-Policy` header to `same-site` to prevent cross-domain attacks.\n\n**References**: \n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#cross-origin-resource-policy-corp \n- https://developer.mozilla.org/en-us/docs/web/http/headers/cross-origin-resource-policy\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/187"
+              }
+            },
+            {
+              "id": "b0b743cd-1706-4a03-987f-a9552b352c2a-Missing HTTP Header - Cross-Origin-Opener-Policy",
+              "name": "b0b743cd-1706-4a03-987f-a9552b352c2a-Missing HTTP Header - Cross-Origin-Opener-Policy",
+              "shortDescription": {
+                "text": "Missing HTTP Header - Cross-Origin-Opener-Policy"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Cross-Origin-Opener-Policy** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: This site is missing the `Cross-Origin-Opener-Policy` (COOP) HTTP security header. This mechanism protects against attacks like Spectre which can cross the security boundary established by Same Origin Policy (SOP) for resources in the same browsing context group.\n\nTo demonstrate this security misconfiguration, send an HTTP request to `None` with the following `curl` command: ```curl -I None```. If the HTTP response does not include the `Cross-Origin-Opener-Policy` header in the response, then it does not have this layer of protection provided by the HTTP header. \n\nConsider setting the `Cross-Origin-Opener-Policy` header to `same-origin` to prevent cross-domain attacks. \n\n**References**: \n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#cross-origin-opener-policy-coop \n- https://developer.mozilla.org/en-us/docs/web/http/headers/cross-origin-opener-policy\n- https://xsleaks.dev/\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/186"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Cross-Origin-Opener-Policy** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: This site is missing the `Cross-Origin-Opener-Policy` (COOP) HTTP security header. This mechanism protects against attacks like Spectre which can cross the security boundary established by Same Origin Policy (SOP) for resources in the same browsing context group.\n\nTo demonstrate this security misconfiguration, send an HTTP request to `None` with the following `curl` command: ```curl -I None```. If the HTTP response does not include the `Cross-Origin-Opener-Policy` header in the response, then it does not have this layer of protection provided by the HTTP header. \n\nConsider setting the `Cross-Origin-Opener-Policy` header to `same-origin` to prevent cross-domain attacks. \n\n**References**: \n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#cross-origin-opener-policy-coop \n- https://developer.mozilla.org/en-us/docs/web/http/headers/cross-origin-opener-policy\n- https://xsleaks.dev/\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/186"
+              }
+            },
+            {
+              "id": "5e1bbdb2-0a37-4b04-adde-aaca4c62d9c1-Missing HTTP Header - Cross-Origin-Embedder-Policy",
+              "name": "5e1bbdb2-0a37-4b04-adde-aaca4c62d9c1-Missing HTTP Header - Cross-Origin-Embedder-Policy",
+              "shortDescription": {
+                "text": "Missing HTTP Header - Cross-Origin-Embedder-Policy"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Cross-Origin-Embedder-Policy** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: This site is missing the `Cross-Origin-Embedder-Policy` HTTP Security header. The Cross-Origin-Embedder-Policy (COEP) header is used to specify a policy for which cross-origin resources are allowed to be embedded within a document. The lack of this header **could** allow an attacker to bypass the browser's cross-domain policy and gain access to sensitive information.\n\nTo demonstrate this security misconfiguration, send an HTTP request to `None` with the following `curl` command: ```curl -I None```. If the HTTP response does not include the `Cross-Origin-Embedder-Policy` header in the response, then it does not have this layer of protection provided by the HTTP header. \n\n**References**: \n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#cross-origin-embedder-policy-coep \n- https://developer.mozilla.org/en-us/docs/web/http/headers/cross-origin-embedder-policy\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/185"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Cross-Origin-Embedder-Policy** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: This site is missing the `Cross-Origin-Embedder-Policy` HTTP Security header. The Cross-Origin-Embedder-Policy (COEP) header is used to specify a policy for which cross-origin resources are allowed to be embedded within a document. The lack of this header **could** allow an attacker to bypass the browser's cross-domain policy and gain access to sensitive information.\n\nTo demonstrate this security misconfiguration, send an HTTP request to `None` with the following `curl` command: ```curl -I None```. If the HTTP response does not include the `Cross-Origin-Embedder-Policy` header in the response, then it does not have this layer of protection provided by the HTTP header. \n\n**References**: \n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#cross-origin-embedder-policy-coep \n- https://developer.mozilla.org/en-us/docs/web/http/headers/cross-origin-embedder-policy\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/185"
+              }
+            },
+            {
+              "id": "f3f692c3-9c99-4f87-a201-da13cb65c1c6-Missing HTTP Header - Content-Security-Policy",
+              "name": "f3f692c3-9c99-4f87-a201-da13cb65c1c6-Missing HTTP Header - Content-Security-Policy",
+              "shortDescription": {
+                "text": "Missing HTTP Header - Content-Security-Policy"
+              },
+              "fullDescription": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Content-Security-Policy** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: The application is missing the `Content-Security-Policy` security header. The lack of this header *could* allow an attacker to inject arbitrary JavaScript into the page because browsers allow the loading of any resource, including scripts and stylesheets, when the `Content-Security-Policy` header is missing. \n\nTo demonstrate this security misconfiguration, send an HTTP request to `None` with the following `curl` command: ```curl -I None```. The response does not include the `Content-Security-Policy` header.\n\nIf an attacker can control a script that is executed in the victim's browser, then the attacker could use this access to steal cookies, perform phishing attacks, or perform other malicious actions. This could have a serious impact on the security of the application and its users. \n\n**References**: \n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#content-security-policy-csp \n- https://developer.mozilla.org/en-us/docs/web/http/headers/content-security-policy\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/184"
+              },
+              "helpUri": "https://docs.nightvision.net",
+              "help": {
+                "text": "🚨 **Exploitable Vulnerability Found** 🚨\n\nℹ️ The `/` URL path is vulnerable to **Missing HTTP Header - Content-Security-Policy** via a `GET` request. The application declared the `/` endpoint in the file `src/main/java/hawk/controller/IndexController.java` on **Line 10**.\n\n**Description**: The application is missing the `Content-Security-Policy` security header. The lack of this header *could* allow an attacker to inject arbitrary JavaScript into the page because browsers allow the loading of any resource, including scripts and stylesheets, when the `Content-Security-Policy` header is missing. \n\nTo demonstrate this security misconfiguration, send an HTTP request to `None` with the following `curl` command: ```curl -I None```. The response does not include the `Content-Security-Policy` header.\n\nIf an attacker can control a script that is executed in the victim's browser, then the attacker could use this access to steal cookies, perform phishing attacks, or perform other malicious actions. This could have a serious impact on the security of the application and its users. \n\n**References**: \n- https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html#content-security-policy-csp \n- https://developer.mozilla.org/en-us/docs/web/http/headers/content-security-policy\n\n🔍 For more information see the issue on **NightVision** here: https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings/184"
+              }
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "https://app.nightvision.net/scans/3b8a4b5e-2af1-435b-aa25-40c4d4937c8f/findings"
+          },
+          "length": -1
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "5f666992-b835-4ebc-a43a-710464382448-SQL Injection - PostgreSQL",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "SQL Injection - PostgreSQL"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/hawk/controller/SearchController.java"
+                },
+                "region": {
+                  "startLine": 37,
+                  "message": {
+                    "text": "Found on endpoint /search"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "5f666992-b835-4ebc-a43a-710464382448"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "Medium",
+            "nightvision-risk": "CRITICAL",
+            "security-severity": "10.0"
+          }
+        },
+        {
+          "ruleId": "313f1eb0-ecd7-43e0-96c5-6554400a0c54-Cross Site Scripting (Reflected)",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Cross Site Scripting (Reflected)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/hawk/controller/SearchController.java"
+                },
+                "region": {
+                  "startLine": 37,
+                  "message": {
+                    "text": "Found on endpoint /search"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "313f1eb0-ecd7-43e0-96c5-6554400a0c54"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "Medium",
+            "nightvision-risk": "HIGH",
+            "security-severity": "8.0"
+          }
+        },
+        {
+          "ruleId": "5b6694f7-7de6-4d1c-896c-e94c2ec4a73d-Parameter Tampering",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Parameter Tampering"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/hawk/controller/SearchController.java"
+                },
+                "region": {
+                  "startLine": 37,
+                  "message": {
+                    "text": "Found on endpoint /search"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "5b6694f7-7de6-4d1c-896c-e94c2ec4a73d"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "Medium",
+            "nightvision-risk": "MEDIUM",
+            "security-severity": "5.0"
+          }
+        },
+        {
+          "ruleId": "44a3ee9f-93dc-4268-a68d-186f57826c4a-Spring4Shell",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Spring4Shell"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/hawk/controller/SearchController.java"
+                },
+                "region": {
+                  "startLine": 37,
+                  "message": {
+                    "text": "Found on endpoint /search"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "44a3ee9f-93dc-4268-a68d-186f57826c4a"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "Medium",
+            "nightvision-risk": "CRITICAL",
+            "security-severity": "10.0"
+          }
+        },
+        {
+          "ruleId": "b7e8be4d-9f49-451c-a1ef-9fa92d1ff878-Application Error Disclosure",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Application Error Disclosure"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/"
+                },
+                "region": {
+                  "startLine": 1,
+                  "message": {
+                    "text": "Found on endpoint /admin/payload/stream"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "b7e8be4d-9f49-451c-a1ef-9fa92d1ff878"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "Medium",
+            "nightvision-risk": "LOW",
+            "security-severity": "3.0"
+          }
+        },
+        {
+          "ruleId": "4bfa008f-3a67-4dad-a543-ae5c12d35134-Application Error Disclosure",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Application Error Disclosure"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/"
+                },
+                "region": {
+                  "startLine": 1,
+                  "message": {
+                    "text": "Found on endpoint /admin/payload/10"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "4bfa008f-3a67-4dad-a543-ae5c12d35134"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "Medium",
+            "nightvision-risk": "LOW",
+            "security-severity": "3.0"
+          }
+        },
+        {
+          "ruleId": "49dfd75b-7187-4a54-abf9-60428f808c18-Application Error Disclosure",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Application Error Disclosure"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/"
+                },
+                "region": {
+                  "startLine": 1,
+                  "message": {
+                    "text": "Found on endpoint /admin/payload/10"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "49dfd75b-7187-4a54-abf9-60428f808c18"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "Medium",
+            "nightvision-risk": "LOW",
+            "security-severity": "3.0"
+          }
+        },
+        {
+          "ruleId": "4f376282-a2f4-4af8-8867-028ae9a85a3d-Missing HTTP Header - Access-Control-Allow-Origin",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Missing HTTP Header - Access-Control-Allow-Origin"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/hawk/controller/IndexController.java"
+                },
+                "region": {
+                  "startLine": 10,
+                  "message": {
+                    "text": "Found on endpoint /"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "4f376282-a2f4-4af8-8867-028ae9a85a3d"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "High",
+            "nightvision-risk": "LOW",
+            "security-severity": "3.0"
+          }
+        },
+        {
+          "ruleId": "a6c21f8c-1def-4c64-8560-720ca1008037-Missing HTTP Header - Referrer-Policy",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Missing HTTP Header - Referrer-Policy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/hawk/controller/IndexController.java"
+                },
+                "region": {
+                  "startLine": 10,
+                  "message": {
+                    "text": "Found on endpoint /"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "a6c21f8c-1def-4c64-8560-720ca1008037"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "High",
+            "nightvision-risk": "LOW",
+            "security-severity": "3.0"
+          }
+        },
+        {
+          "ruleId": "3a01fbba-89e4-403c-a9f7-72c4d7f73412-Missing HTTP Header - Permissions-Policy",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Missing HTTP Header - Permissions-Policy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/hawk/controller/IndexController.java"
+                },
+                "region": {
+                  "startLine": 10,
+                  "message": {
+                    "text": "Found on endpoint /"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "3a01fbba-89e4-403c-a9f7-72c4d7f73412"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "High",
+            "nightvision-risk": "LOW",
+            "security-severity": "3.0"
+          }
+        },
+        {
+          "ruleId": "4c28c524-7dfd-4587-b8c8-ea3c173d6c77-Missing HTTP Header - Cross-Origin-Resource-Policy",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Missing HTTP Header - Cross-Origin-Resource-Policy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/hawk/controller/IndexController.java"
+                },
+                "region": {
+                  "startLine": 10,
+                  "message": {
+                    "text": "Found on endpoint /"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "4c28c524-7dfd-4587-b8c8-ea3c173d6c77"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "High",
+            "nightvision-risk": "LOW",
+            "security-severity": "3.0"
+          }
+        },
+        {
+          "ruleId": "b0b743cd-1706-4a03-987f-a9552b352c2a-Missing HTTP Header - Cross-Origin-Opener-Policy",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Missing HTTP Header - Cross-Origin-Opener-Policy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/hawk/controller/IndexController.java"
+                },
+                "region": {
+                  "startLine": 10,
+                  "message": {
+                    "text": "Found on endpoint /"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "b0b743cd-1706-4a03-987f-a9552b352c2a"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "High",
+            "nightvision-risk": "LOW",
+            "security-severity": "3.0"
+          }
+        },
+        {
+          "ruleId": "5e1bbdb2-0a37-4b04-adde-aaca4c62d9c1-Missing HTTP Header - Cross-Origin-Embedder-Policy",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Missing HTTP Header - Cross-Origin-Embedder-Policy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/hawk/controller/IndexController.java"
+                },
+                "region": {
+                  "startLine": 10,
+                  "message": {
+                    "text": "Found on endpoint /"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "5e1bbdb2-0a37-4b04-adde-aaca4c62d9c1"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "High",
+            "nightvision-risk": "LOW",
+            "security-severity": "3.0"
+          }
+        },
+        {
+          "ruleId": "f3f692c3-9c99-4f87-a201-da13cb65c1c6-Missing HTTP Header - Content-Security-Policy",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Missing HTTP Header - Content-Security-Policy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/hawk/controller/IndexController.java"
+                },
+                "region": {
+                  "startLine": 10,
+                  "message": {
+                    "text": "Found on endpoint /"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "nightvisionIssueID/v1": "f3f692c3-9c99-4f87-a201-da13cb65c1c6"
+          },
+          "baselineState": "new",
+          "rank": 100,
+          "properties": {
+            "nightvision-confidence": "High",
+            "nightvision-risk": "LOW",
+            "security-severity": "3.0"
+          }
+        }
+      ]
+    }
+  ]
+}
